@@ -1,8 +1,10 @@
 from flask import Flask, jsonify, request
 import sqlite3
-import json
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+
 bookConnection = sqlite3.connect('books.db', check_same_thread=False)
 bookConnection.row_factory = sqlite3.Row
 app.config['JSON_SORT_KEYS'] = False
