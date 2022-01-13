@@ -54,7 +54,7 @@ def getAllBooksAlphOrder():
 
         bookList.append(currentBook)
 
-    return jsonify(bookList)
+    return jsonify({"books":bookList})
 
 
 @app.route("/api/books", methods=["DELETE"])
