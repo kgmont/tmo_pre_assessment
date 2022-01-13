@@ -63,3 +63,7 @@ def deleteAllBooks():
     bookConnection.commit()
 
     return jsonify(), 204
+
+
+if __name__ == "__main__":
+    app.run()
