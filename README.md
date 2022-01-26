@@ -9,7 +9,7 @@
 ## Requests
 **GET: /api/book**\
 *Returns all books currently in DB*
-\
+
 **POST: /api/books**\
 *Adds book to DB*
 
@@ -21,6 +21,6 @@ Example JSON:
     	"yearPublished": 1979
     }
 
-\
+
 **DELETE: /api/book**\
 *Deletes all books from DB*
