@@ -66,7 +66,6 @@ def getAllBooksAlphOrder():
 # delete all books
 @app.route("/api/books", methods=["DELETE"])
 def deleteAllBooks():
-    bookList = []
     bookCursor.execute('DELETE FROM Books')
     bookConnection.commit()
 
