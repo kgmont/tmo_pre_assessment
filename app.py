@@ -3,6 +3,9 @@ import sqlite3
 from flask_cors import CORS
 import os
 
+# app config
+#-----------------------------------------------------------------------------------
+
 app = Flask(__name__)
 CORS(app)
 
@@ -14,7 +17,9 @@ bookCursor = bookConnection.cursor()
 bookCursor.execute('''CREATE TABLE IF NOT EXISTS Books (id INTEGER PRIMARY KEY, author TEXT, title TEXT, year_published INT)''')
 bookConnection.commit()
 
+#-----------------------------------------------------------------------------------
 
+# add book
 @app.route("/api/books", methods=["POST"])
 def addBook():
     author = request.json.get('author')
@@ -34,6 +39,7 @@ def addBook():
     return jsonify({'id':newBookId, 'author':newBookAuthor, 'title':newBookTitle, 'yearPublished':newBookYear}), 201
 
 
+# get all books, alph. ordered by title
 @app.route("/api/books", methods=["GET"])
 def getAllBooksAlphOrder():
     bookList = []
@@ -57,6 +63,7 @@ def getAllBooksAlphOrder():
     return jsonify({"books":bookList})
 
 
+# delete all books
 @app.route("/api/books", methods=["DELETE"])
 def deleteAllBooks():
     bookList = []
@@ -65,7 +72,9 @@ def deleteAllBooks():
 
     return jsonify(), 204
 
+#-----------------------------------------------------------------------------------
 
+# runner
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
