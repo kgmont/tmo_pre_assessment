@@ -7,10 +7,11 @@
 `python -m flask run`
 
 ## Requests
-**GET: /api/book**\
-*Returns all books currently in DB*
+### GET: /api/book
+*Returns all books currently in DB*\
 
-**POST: /api/books**\
+&nbsp;
+### POST: /api/books
 *Adds book to DB*
 
 Example JSON:
@@ -22,5 +23,6 @@ Example JSON:
     }
 
 
-**DELETE: /api/book**\
+&nbsp;
+### DELETE: /api/book
 *Deletes all books from DB*
